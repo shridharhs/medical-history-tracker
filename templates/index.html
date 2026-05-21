@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NMDHRS | National Medical Digital Health Record System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8fafc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .gov-header {
+      background-color: #fff;
+      border-bottom: 2px solid #dee2e6;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .gov-title {
+      text-align: center;
+      flex-grow: 1;
+    }
+    .gov-title div {
+      font-size: 18px;
+      font-weight: bold;
+      color: #003366;
+    }
+    .section-heading {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 25px;
+      color: #1e2d50;
+      border-bottom: 2px solid #dee2e6;
+      padding-bottom: 5px;
+    }
+    .card-hover:hover {
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    .footer {
+      background: #f1f3f5;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">🇮🇳 NMDHRS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/login">Hospital-Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="/health_news">News</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Services / Blog
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDropdown">
+            <li><a class="dropdown-item" href="/blogs">Doctor Blogs</a></li>
+            <li><a class="dropdown-item" href="/write_blog">Write a Blog</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="/about_us">About-Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<div class="gov-header">
+  <img src="/static/indian_flag.png" alt="India Flag" height="60">
+  <div class="gov-title">
+    <div>REPUBLIC OF INDIA</div>
+    <div>Ministry of Health and Family Welfare</div>
+    <div>National Medical Digital Health Record System (NMDHRS)</div>
+  </div>
+  <img src="/static/health_logo.png" alt="Health Logo" height="60">
+</div>
+
+<!-- Search Medical Records -->
+<div class="container mt-5">
+  <div class="card p-4 shadow-sm">
+    <h3 class="text-center mb-4 text-primary">Access Your Medical Records</h3>
+    <form action="/search" method="post" class="text-center">
+      <div class="mb-3">
+        <input type="text" name="aadhaar" class="form-control form-control-lg" placeholder="Enter Aadhaar Number" required style="max-width: 400px; margin: auto;">
+      </div>
+      <button type="submit" class="btn btn-success btn-lg">Search Now</button>
+    </form>
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="container">
+  <div class="section-heading">What is NMDHRS?</div>
+  <p>
+    The <strong>National Medical Digital Health Record System (NMDHRS)</strong> is a government-backed health data platform ensuring secure Aadhaar-linked access to citizen medical records.
+  </p>
+  <ul>
+    <li>Encrypted and Aadhaar-authenticated access</li>
+    <li>Only approved hospitals can upload records</li>
+    <li>PDF documents are digitally signed</li>
+  </ul>
+</div>
+
+<!-- Rules Section -->
+<div class="container mt-4">
+  <div class="section-heading">Rules & Regulations</div>
+  <ol>
+    <li>Only Aadhaar holders can access records.</li>
+    <li>Data visible only to patient or authorized personnel.</li>
+    <li>Forging records is punishable under IT Act 66C.</li>
+    <li>Hospitals must upload records within 24 hrs.</li>
+  </ol>
+</div>
+
+<!-- Initiatives -->
+<div class="container mt-5 mb-5">
+  <div class="section-heading">National Health Initiatives</div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 p-3 card-hover border-success">
+        <h5 class="text-success">Ayushman Bharat</h5>
+        <p>₹5 lakh health cover to 10 crore+ families.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 p-3 card-hover border-info">
+        <h5 class="text-info">e-Sanjeevani</h5>
+        <p>Nationwide online consultation for rural patients.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 p-3 card-hover border-primary">
+        <h5 class="text-primary">National Health Stack</h5>
+        <p>Digital personal health record system.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="footer text-center border-top">
+  &copy; 2025 Government of India | Designed for NMDHRS by PESCE MCA
+</footer>
+
+<!-- Medicine Modal -->
+<div class="modal fade" id="medicineModal" tabindex="-1" aria-labelledby="medicineModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="medicineModalLabel">Medicine Use & Info</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="medicineInput" class="form-control" placeholder="Enter medicine name">
+        <button class="btn btn-primary mt-3" onclick="searchMedicine()">Search</button>
+        <div class="mt-4">
+          <strong>Result:</strong>
+          <p id="medicineResult" class="mt-2 text-dark"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap + JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+}
+</script>
+
+</body>
+</html>

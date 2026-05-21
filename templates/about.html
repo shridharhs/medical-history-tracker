@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | NMDHRS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .about-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .college-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .profile-card {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            background-color: #f0f7ff;
+            border-left: 6px solid #007bff;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .profile-card img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 25px;
+            border: 2px solid #007bff;
+        }
+
+        .profile-details h4 {
+            margin-top: 10px;
+            color: #003366;
+            font-weight: 600;
+        }
+
+        .profile-details p {
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .email {
+            font-size: 0.95rem;
+            color: #007bff;
+        }
+
+        .btn-back {
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="about-container">
+
+    <h3 class="section-title text-center">About Us</h3>
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='uploads/college.jpg') }}"
+             alt="PES College"
+             class="img-fluid rounded shadow-sm mx-auto d-block"
+             style="width: 100%; max-height: 400px; object-fit: cover;">
+    </div>
+
+    <!-- College Info -->
+    <h2 class="section-title text-center">P.E.S. College of Engineering, Mandya</h2>
+    <div class="college-section">
+        <p>
+            <strong>P.E.S. College of Engineering (PESCE)</strong>, Mandya, established in 1962 by the People’s Education Society (now People's Education Trust), is one of Karnataka's oldest and most reputed engineering institutions.
+            It is affiliated with Visvesvaraya Technological University (VTU), Belagavi, and recognized by AICTE. The college offers a wide range of undergraduate and postgraduate programs with a focus on academic excellence, innovation, and overall student development.
+            Known for its strong infrastructure, dedicated faculty, and student-centric approach, PESCE continues to shape the future of thousands of aspiring engineers.
+        </p>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- HOD Section -->
+    <h3 class="section-title">Mentor & HOD</h3>
+    <div class="profile-card">
+        <img src="{{ url_for('static', filename='uploads/veenamam.jpg') }}" alt="Dr. Veena M N">
+        <div class="profile-details">
+            <h4>Dr. Veena M N</h4>
+            <p>Professor & HOD, Department of MCA</p>
+            <p class="email">✉️ veenadisha1@pesce.ac.in</p>
+            <p>
+                I would like to sincerely thank Dr. Veena M N, Professor and Head of the Department of MCA at PES College of Engineering, Mandya, for her constant guidance and encouragement throughout this project.
+            </p>
+            <p>
+                Her support helped me stay focused on solving a real-world problem — making medical records easily accessible from anywhere, at any time. Always emphasized the importance of building technology that is both useful and responsible.
+            </p>
+            <p>
+                Her thoughtful suggestions on privacy, user experience, and practical use in healthcare settings were invaluable in shaping the system. I am grateful for her trust and belief in this initiative.
+            </p>
+        </div>
+    </div>
+
+    <hr class="my-5">
+
+    <!-- Developer Section -->
+    <h3 class="section-title">Developer</h3>
+<div class="profile-card">
+    <img src="{{ url_for('static', filename='uploads/shri.jpg') }}" alt="Shridhar HS">
+    <div class="profile-details">
+        <h4>Shridhar HS</h4>
+        <p>Final Year MCA Student</p>
+        <p>PES College of Engineering, Mandya</p>
+        <p><strong>Role:</strong> Full Stack Developer</p>
+        <p><strong>Passionate about:</strong> Digital Health, developing Digital Guest Tracking Systems.</p>
+    </div>
+
+<hr class="my-5">
+
+
+<div class="college-section">
+    <p>
+        The <strong>National Medical Digital Health Record System (NMDHRS)</strong> is built with the vision of making healthcare data securely accessible across locations and institutions. In many situations—especially in rural or emergency cases—patients struggle to provide their past medical history, which delays treatment and increases risk.
+    </p>
+    <p>
+        This project aims to bridge that gap by allowing verified doctors and institutions to upload and view health records in real-time, ensuring that medical history is always available when it's needed the most. It supports both institutional and personal healthcare continuity, improves efficiency, and reduces paperwork.
+    </p>
+
+</div>
+    </div>
+
+
+    <!-- Back Button -->
+    <div class="text-center">
+        <a href="{{ url_for('index') }}" class="btn btn-primary btn-back">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

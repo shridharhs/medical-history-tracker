@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Blogs | NMDHRS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .cover-section {
+            background: linear-gradient(135deg, #007bff, #00bcd4);
+            color: white;
+            padding: 60px 30px 40px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .cover-section h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .cover-section p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            background-color: #e9f2ff;
+            border-bottom: 1px solid #d3e0f0;
+            padding: 20px;
+        }
+
+        .card-header h5 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #003366;
+        }
+
+        .card-body p {
+            font-size: 1rem;
+            color: #444;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .read-more-btn {
+            margin-top: 10px;
+        }
+
+        .rounded-circle {
+            object-fit: cover;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .bottom-home-btn {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-home-btn {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔷 Cover Section -->
+<div class="cover-section">
+    <h1>🩺 Doctor Blogs</h1>
+    <p>Latest insights and updates from verified medical professionals across India</p>
+</div>
+
+<!-- 📚 Blogs List -->
+<div class="main-container">
+    {% if blogs %}
+        {% for blog in blogs %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <div class="d-flex align-items-center mb-2">
+                    {% if blog[7] %}
+                        <img src="{{ url_for('static', filename='uploads/' + blog[7]) }}" class="rounded-circle me-3" width="60" height="60" alt="Doctor Photo">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='default_doctor.png') }}" class="rounded-circle me-3" width="60" height="60" alt="Default Doctor">
+                    {% endif %}
+                    <div>
+                        <strong>Dr. {{ blog[1] }}</strong><br>
+                        <small class="text-muted">{{ blog[3] }} Dept, {{ blog[2] }}</small>
+                    </div>
+                </div>
+                <h5>{{ blog[4] }}</h5>
+                <div class="blog-meta">
+                    <small class="text-muted">🕒 {{ blog[6] }}</small>
+                </div>
+            </div>
+            <div class="card-body">
+                <p>{{ blog[5][:400] }}{% if blog[5]|length > 400 %}...{% endif %}</p>
+                <a href="{{ url_for('view_single_blog', blog_id=blog[0]) }}" class="btn btn-outline-primary btn-sm read-more-btn">Read More</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted text-center">No blogs published yet.</p>
+    {% endif %}
+
+    <!-- 🏠 Home Button at Bottom -->
+    <div class="bottom-home-btn">
+        <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg"> Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

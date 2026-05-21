@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog[3] }} | Doctor Blog | NMDHRS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7fb;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .blog-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .blog-header {
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: #fff;
+            padding: 25px;
+        }
+
+        .blog-header h3 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .blog-body {
+            padding: 30px;
+            line-height: 1.7;
+            background-color: #ffffff;
+            white-space: pre-line;
+        }
+
+        .back-link {
+            display: block;
+            margin-bottom: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="blog-container">
+    <a href="{{ url_for('list_blogs') }}" class="back-link">← Back to All Blogs</a>
+
+    <div class="card blog-card">
+        <div class="blog-header">
+            <h3>{{ blog[3] }}</h3>
+            <div class="blog-meta">
+                <strong>Dr. {{ blog[0] }}</strong> &nbsp;|&nbsp;
+                {{ blog[2] }} Dept, {{ blog[1] }}<br>
+                <small>🕒 {{ blog[5] }}</small>
+            </div>
+        </div>
+        <div class="blog-body">
+            {{ blog[4] }}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
